@@ -11,16 +11,16 @@ def q1(input_file_name):
             div_num = float(lst_text[0])  # A variable of the first number in th string
             for i in range(1, len(lst_text)):  # That "for" loop divides al the numbers in the file
                 div_num = div_num / float(lst_text[i])
-            print(div_num)
+            return div_num
 
         except FileNotFoundError:
-            print(-1)
+            return -1
 
         except ZeroDivisionError:
-            print(-2)
+            return -2
 
         except ValueError or TypeError:
-            print(-3)
+            return -3
 
 
 def q2(input_file_name):
