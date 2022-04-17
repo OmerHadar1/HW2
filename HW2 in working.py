@@ -1,20 +1,13 @@
-def q2(input_file_name):
+def q3_a(n: int):
     """
-      a. Read words from input file
-      b. Classify the words by length
-      c. Write each word and its length to output file.
+    :param n: An integer number
+    :return: All prime numbers up to n
     """
 
-    input_file = open(input_file_name, "r")
-    word_lst = input_file.read().split()  # List of the words in the file
-    sorted_lst = []
-    while len(word_lst) != 0:
-        shortest_word = min(word_lst, key=len)
-        word_added = (shortest_word, len(shortest_word))
-        sorted_lst.append(word_added)
-        word_lst.remove(shortest_word)
 
-    with open("output_" + input_file_name, "w") as output_sile:
-        for item in sorted_lst:
-            output_sile.write(str(item) + ", ")
-
+def q3_b(n: int):
+    """
+    uses the function q3_a
+    :param n: An integer number
+    :return: A list that contains all the three prime numbers combinations whose product is less than or equal to n.
+    """
