@@ -141,14 +141,7 @@ def q5_a(z, a, b, n):
             low = sol
         elif z(sol) == 0:
             break
-        else:
-            sol = False
-            break
-    if sol != int(sol) and sol is not False:
-        sol = round(sol, 2)
-    else:
-        pass
-    return sol
+
 
 def q5_b(f, g, a, b, n):
     """
