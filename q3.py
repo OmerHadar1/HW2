@@ -30,7 +30,7 @@ def q3_b(n: int):
     prime_lst = []
     combinations_lst = []
     for i in range(len(prime_num)):
-        if int(prime_num[i]) <= n/4:
+        if int(prime_num[i]) <= n/4:  # for downsize the number of interactions
             prime_lst.append(int(prime_num[i]))
         else:
             break

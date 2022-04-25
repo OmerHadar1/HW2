@@ -12,18 +12,15 @@ def q5_a(z, a, b, n):
     high = b
     for i in range(n):
         sol = (low + high) / 2
-        if z(sol) * z(low) < 0:
-            high = sol
-        elif z(sol) * z(high) < 0:
-            low = sol
+        if z(high) * z(low) > 0:
+            sol = False
+            break
         elif z(sol) == 0:
             break
 
-    if z(sol) != 0:
-        return False
-    elif sol != int(sol) and sol is not False:
+    if sol != int(sol):
         sol = round(sol, 2)
-        return sol
+    return sol
 
 
 
@@ -37,25 +34,29 @@ def q5_b(f, g, a, b, n):
     :param n: the number of interactions that the function will do
     :return: the approximation of a solution 𝑓(𝑥)=𝑔(𝑥) (using the bisection method)
     """
-    def h(x: int):
-        """The function return the remainder between f(x) - g(x)
-        :param x: the number we want to check
-        :return : the remainder
-        """
-        return f(x) - g(x)
+    try:
+        def h(x):
+            """The function return the remainder between f(x) - g(x)
+            :param x: the number we want to check
+            :return : the remainder
+            """
+            return f(x) - g(x)
+    except ZeroDivisionError or ValueError:
+        return False
     return q5_a(h, a, b, n)
+
 
 
 # ########### TESTING FUNCTIONS, DO NOT CHANGE THESE FUNCTIONS ################
 
 
 def f(x):
-    return 3 * x + 9
+    return 2*x+5
 
 
 def g(x):
-    return x ** 2 - 5
+    return -2*x+5
 
 # ###############################################################################
 
-print(q5_a(g, -10, 10, 10))
+print(q5_b(f, g, -10, 10, 10))
